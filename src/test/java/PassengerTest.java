@@ -28,21 +28,36 @@ public class PassengerTest {
         assertEquals("Bob Smith", passenger1.getName());
     }
 
-    public void testGetBagNumber() {
+    @Test
+    public void canGetBagNumber() {
         assertEquals(1, passenger1.getBagNumber());
     }
 
-    public void testSetBagNumber() {
+    @Test
+    public void canSetBagNumber() {
         passenger1.setBagNumber(100);
         assertEquals(100, passenger1.getBagNumber());
     }
 
-    public void testIsFlight() {
+    @Test
+    public void canIsFlight() {
         assertEquals(false,passenger1.isFlight());
     }
 
-    public void testSetFlight() {
+    @Test
+    public void canSetFlight() {
         passenger1.setFlight(true);
         assertEquals(true,passenger1.isFlight());
+    }
+
+    @Test
+    public void getSeatNumber() {
+        assertEquals(0, passenger1.getSeatNumber());
+    }
+
+    @Test
+    public void setSeatNumber() {
+        passenger1.setSeatNumber(1);
+        assertEquals(1, passenger1.getSeatNumber());
     }
 }
