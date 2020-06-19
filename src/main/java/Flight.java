@@ -48,6 +48,8 @@ public class Flight {
 
     public void addPassenger(Passenger passenger) {
         if(this.plane.getPlaneType().capacity > passengerCount()){
+            passenger.setFlight(true);
+            passenger.setSeatNumber(10000);
             this.passengers.add(passenger);
         }
     }
