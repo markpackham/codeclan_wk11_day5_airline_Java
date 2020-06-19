@@ -27,4 +27,22 @@ public class PassengerTest {
         passenger1.setName("Bob Smith");
         assertEquals("Bob Smith", passenger1.getName());
     }
+
+    public void testGetBagNumber() {
+        assertEquals(1, passenger1.getBagNumber());
+    }
+
+    public void testSetBagNumber() {
+        passenger1.setBagNumber(100);
+        assertEquals(100, passenger1.getBagNumber());
+    }
+
+    public void testIsFlight() {
+        assertEquals(false,passenger1.isFlight());
+    }
+
+    public void testSetFlight() {
+        passenger1.setFlight(true);
+        assertEquals(true,passenger1.isFlight());
+    }
 }
