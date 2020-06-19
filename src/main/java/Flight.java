@@ -37,6 +37,10 @@ public class Flight {
         return plane;
     }
 
+    public ArrayList<Passenger> getPassengers() {
+        return passengers;
+    }
+
     public void addPassenger(Passenger passenger) {
         if(this.plane.getPlaneType().capacity > passengerCount()){
             this.passengers.add(passenger);
