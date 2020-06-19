@@ -54,5 +54,22 @@ public class FlightManagerTest {
         assertEquals(3,flightManager1.passangersBaggageWeight(flight4));
     }
 
+    @Test
+    public void canGetPassangersBaggageWeight__ZeroBagsPassanger(){
+        flight4.addPassenger(passenger5);
+        assertEquals(0,flightManager1.passangersBaggageWeight(flight4));
+    }
+
+    @Test
+    public void canGetRemainingReservedWeight__HitLimit(){
+        flight1.addPassenger(passenger1);
+        assertEquals(0,flightManager1.remainingReservedWeight(flight1));
+    }
+
+    @Test
+    public void canGetRemainingReservedWeight__ZeroBagsPassanger(){
+        flight1.addPassenger(passenger5);
+        assertEquals(1,flightManager1.remainingReservedWeight(flight1));
+    }
 
 }

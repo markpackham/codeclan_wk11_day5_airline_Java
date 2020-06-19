@@ -13,7 +13,6 @@ public class FlightManager {
         return baggageWeightLimit/flight.getPlane().getPlaneType().capacity;
     }
 
-
     public int passangersBaggageWeight(Flight flight) {
        ArrayList<Passenger> passengers = flight.getPassengers();
        int weight = 0;
@@ -21,5 +20,9 @@ public class FlightManager {
             weight += passenger.getBagNumber();
         }
         return weight;
+    }
+
+    public int remainingReservedWeight(Flight flight) {
+        return reservedBaggageWeight(flight) - passangersBaggageWeight(flight);
     }
 }
