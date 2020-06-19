@@ -37,4 +37,11 @@ public class Flight {
         return plane;
     }
 
+    public void addPassenger(Passenger passenger) {
+        this.passengers.add(passenger);
+    }
+
+    public int passengerCount() {
+        return this.passengers.size();
+    }
 }

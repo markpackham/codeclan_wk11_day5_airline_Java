@@ -28,31 +28,40 @@ public class FlightTest {
         passenger3 = new Passenger("Greg", 3);
         passenger4 = new Passenger("Jimmy", 1);
         flight1 = new Flight("1A","Edinburgh", "London", "01:00", plane1);
+        flight2 = new Flight("2A","London", "Edinburgh", "02:00", plane2);
+        flight3 = new Flight("3A","Glasgow", "Paris", "03:00", plane3);
+        flight4 = new Flight("4A","Paris", "Glasgow", "04:00", plane4);
     }
 
     @Test
-    public void getFlightNumber() {
+    public void canCetFlightNumber() {
         assertEquals("1A", flight1.getFlightNumber());
     }
 
     @Test
-    public void getDestination() {
+    public void canGetDestination() {
         assertEquals("Edinburgh", flight1.getDestination());
     }
 
     @Test
-    public void getDepartureAirport() {
+    public void canGetDepartureAirport() {
         assertEquals("London", flight1.getDepartureAirport());
     }
 
     @Test
-    public void getDepartureTime() {
+    public void canGetDepartureTime() {
         assertEquals("01:00", flight1.getDepartureTime());
     }
 
     @Test
-    public void getPlane() {
+    public void canGetPlane() {
         assertEquals(plane1, flight1.getPlane());
+    }
+
+    @Test
+    public void canAddPassanger(){
+        flight4.addPassenger(passenger1);
+        assertEquals(1, flight4.passengerCount());
     }
 
 }

@@ -9,4 +9,5 @@ public class Plane {
     public PlaneType getPlaneType() {
         return planeType;
     }
+
 }

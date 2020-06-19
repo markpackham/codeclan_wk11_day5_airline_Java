@@ -28,11 +28,3 @@ public class PassengerTest {
         assertEquals("Bob Smith", passenger1.getName());
     }
 }
-
-
-
-/*
-
-Have small planes so you don’t have to add 1000 passengers to test the limit.
-MVP use String for Departure time
- */
