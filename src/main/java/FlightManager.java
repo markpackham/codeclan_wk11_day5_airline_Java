@@ -8,21 +8,21 @@ public class FlightManager {
         this.flight = flight;
     }
 
-    public int reservedBaggageWeight(Flight flight){
-        int baggageWeightLimit = flight.getPlane().getPlaneType().totalWeight/2;
+    public double reservedBaggageWeight(Flight flight){
+        double baggageWeightLimit = flight.getPlane().getPlaneType().totalWeight/2;
         return baggageWeightLimit/flight.getPlane().getPlaneType().capacity;
     }
 
-    public int passangersBaggageWeight(Flight flight) {
+    public double passangersBaggageWeight(Flight flight) {
        ArrayList<Passenger> passengers = flight.getPassengers();
-       int weight = 0;
+       double weight = 0;
         for (Passenger passenger:passengers) {
             weight += passenger.getBagNumber();
         }
         return weight;
     }
 
-    public int remainingReservedWeight(Flight flight) {
+    public double remainingReservedWeight(Flight flight) {
         return reservedBaggageWeight(flight) - passangersBaggageWeight(flight);
     }
 }

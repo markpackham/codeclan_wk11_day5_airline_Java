@@ -44,32 +44,32 @@ public class FlightManagerTest {
 
     @Test
     public void canGetReservedBaggageWeight() {
-    assertEquals(5,flightManager1.reservedBaggageWeight(flight4));
+    assertEquals(5.0,flightManager1.reservedBaggageWeight(flight4),1.0);
     }
 
     @Test
     public void canGetPassangersBaggageWeight(){
         flight4.addPassenger(passenger1);
         flight4.addPassenger(passenger2);
-        assertEquals(3,flightManager1.passangersBaggageWeight(flight4));
+        assertEquals(3.0,flightManager1.passangersBaggageWeight(flight4),1.0);
     }
 
     @Test
     public void canGetPassangersBaggageWeight__ZeroBagsPassanger(){
         flight4.addPassenger(passenger5);
-        assertEquals(0,flightManager1.passangersBaggageWeight(flight4));
+        assertEquals(0.0,flightManager1.passangersBaggageWeight(flight4),1.0);
     }
 
     @Test
     public void canGetRemainingReservedWeight__HitLimit(){
         flight1.addPassenger(passenger1);
-        assertEquals(0,flightManager1.remainingReservedWeight(flight1));
+        assertEquals(0.0,flightManager1.remainingReservedWeight(flight1),1.0);
     }
 
     @Test
-    public void canGetRemainingReservedWeight__ZeroBagsPassanger(){
+    public void canGetRemainingReservedWeight__ZeroBagsPassenger(){
         flight1.addPassenger(passenger5);
-        assertEquals(1,flightManager1.remainingReservedWeight(flight1));
+        assertEquals(1.0,flightManager1.remainingReservedWeight(flight1),1.0);
     }
 
 }
