@@ -100,4 +100,13 @@ public class FlightTest {
         assertEquals(99, flight4.availableSeatsCount());
     }
 
+    @Test
+    public void canGetRandomNumber(){
+        flight4.addPassenger(passenger1);
+        flight1.addPassenger(passenger2);
+        // I cannot really test for Randomness but I can see the output when the random function is run
+        System.out.println(passenger1.getSeatNumber());
+        System.out.println(passenger2.getSeatNumber());
+    }
+
 }

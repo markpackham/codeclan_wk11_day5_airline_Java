@@ -2,6 +2,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Random;
 
 public class Flight {
     private String flightNumber;
@@ -11,6 +12,7 @@ public class Flight {
     private SimpleDateFormat formatter = new SimpleDateFormat("HH:mm");
     private Plane plane;
     private ArrayList<Passenger> passengers;
+    private Random rand = new Random();
 
     public Flight(String flightNumber, String destination, String departureAirport, String departureTime, Plane plane) throws ParseException {
         this.flightNumber = flightNumber;
@@ -49,7 +51,9 @@ public class Flight {
     public void addPassenger(Passenger passenger) {
         if(this.plane.getPlaneType().capacity > passengerCount()){
             passenger.setFlight(true);
-            passenger.setSeatNumber(10000);
+            int int_random = rand.nextInt(this.plane.getPlaneType().capacity);
+            // Avoid getting seat 0
+            passenger.setSeatNumber(int_random + 1);
             this.passengers.add(passenger);
         }
     }
