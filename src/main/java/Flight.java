@@ -50,4 +50,12 @@ public class Flight {
     public int availableSeatsCount() {
         return plane.getPlaneType().capacity - passengerCount();
     }
+
+    public int bagWeightCount() {
+        int bagWeight = 0;
+        for (Passenger passanger:passengers) {
+            bagWeight += passanger.getBagNumber();
+        }
+        return bagWeight;
+    }
 }

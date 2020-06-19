@@ -65,12 +65,24 @@ public class FlightTest {
     }
 
     @Test
-    public void cannotAddPassanger(){
+    public void canShowBagWeight(){
+        flight4.addPassenger(passenger1);
+        flight4.addPassenger(passenger2);
+        assertEquals(3,flight4.bagWeightCount());
+    }
+
+    @Test
+    public void cannotAddPassanger__over_capacity(){
         flight1.addPassenger(passenger1);
         flight1.addPassenger(passenger2);
         flight1.addPassenger(passenger3);
         flight1.addPassenger(passenger4);
         assertEquals(2, flight1.passengerCount());
+    }
+
+    @Test
+    public void cannotAddPassanger__over_weight(){
+
     }
 
     @Test
