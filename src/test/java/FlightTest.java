@@ -1,6 +1,8 @@
 import org.junit.Before;
 import org.junit.Test;
 
+import java.text.ParseException;
+
 import static org.junit.Assert.assertEquals;
 
 public class FlightTest {
@@ -21,7 +23,7 @@ public class FlightTest {
     Flight flight4;
 
     @Before
-    public void before() {
+    public void before() throws ParseException {
         plane1 = new Plane(PlaneType.TINYPLANE);
         plane2 = new Plane(PlaneType.SMALLPLANE);
         plane3 = new Plane(PlaneType.BIGPLANE);

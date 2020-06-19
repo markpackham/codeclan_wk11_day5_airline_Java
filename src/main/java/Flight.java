@@ -1,18 +1,22 @@
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Flight {
     private String flightNumber;
     private String destination;
     private String departureAirport;
-    private String departureTime;
+    private Date departureTime;
+    private SimpleDateFormat formatter = new SimpleDateFormat("HH:mm");
     private Plane plane;
     private ArrayList<Passenger> passengers;
 
-    public Flight(String flightNumber, String destination, String departureAirport, String departureTime, Plane plane) {
+    public Flight(String flightNumber, String destination, String departureAirport, String departureTime, Plane plane) throws ParseException {
         this.flightNumber = flightNumber;
         this.destination = destination;
         this.departureAirport = departureAirport;
-        this.departureTime = departureTime;
+        this.departureTime = formatter.parse(departureTime);
         this.plane = plane;
         this.passengers = new ArrayList<Passenger>();
     }
@@ -30,7 +34,8 @@ public class Flight {
     }
 
     public String getDepartureTime() {
-        return departureTime;
+        SimpleDateFormat formatter = new SimpleDateFormat("HH:mm");
+        return formatter.format(departureTime);
     }
 
     public Plane getPlane() {
