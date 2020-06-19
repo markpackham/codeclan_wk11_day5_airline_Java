@@ -12,6 +12,9 @@ public class FlightTest {
     Passenger passenger2;
     Passenger passenger3;
     Passenger passenger4;
+    Passenger passenger5;
+    Passenger passenger6;
+    Passenger passenger7;
     Flight flight1;
     Flight flight2;
     Flight flight3;
@@ -26,7 +29,10 @@ public class FlightTest {
         passenger1 = new Passenger("Bob", 1);
         passenger2 = new Passenger("Frank", 2);
         passenger3 = new Passenger("Greg", 3);
-        passenger4 = new Passenger("Jimmy", 1);
+        passenger4 = new Passenger("Jimmy", 10);
+        passenger5 = new Passenger("Weighless Joe", 0);
+        passenger6 = new Passenger("Weightless Smith", 0);
+        passenger7 = new Passenger("Weightlss Billy", 0);
         flight1 = new Flight("1A","Edinburgh", "London", "01:00", plane1);
         flight2 = new Flight("2A","London", "Edinburgh", "02:00", plane2);
         flight3 = new Flight("3A","Glasgow", "Paris", "03:00", plane3);
@@ -74,15 +80,10 @@ public class FlightTest {
     @Test
     public void cannotAddPassanger__over_capacity(){
         flight1.addPassenger(passenger1);
-        flight1.addPassenger(passenger2);
-        flight1.addPassenger(passenger3);
-        flight1.addPassenger(passenger4);
+        flight1.addPassenger(passenger5);
+        flight1.addPassenger(passenger6);
+        flight1.addPassenger(passenger7);
         assertEquals(2, flight1.passengerCount());
-    }
-
-    @Test
-    public void cannotAddPassanger__over_weight(){
-
     }
 
     @Test

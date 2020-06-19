@@ -33,7 +33,7 @@ public class PlaneTest {
 
     @Test
     public void canGetTotalWeight(){
-        assertEquals(3, plane2.getPlaneType().totalWeight);
+        assertEquals(8, plane2.getPlaneType().totalWeight);
     }
 
 

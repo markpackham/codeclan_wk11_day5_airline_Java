@@ -1,8 +1,8 @@
 public enum PlaneType {
-    TINYPLANE(2,2),
-    SMALLPLANE(3, 3),
-    BIGPLANE(10, 10),
-    HUGEPLANE(100, 100);
+    TINYPLANE(2,5),
+    SMALLPLANE(3, 8),
+    BIGPLANE(10, 25),
+    HUGEPLANE(100, 1000);
 
     public final int capacity;
     public final int totalWeight;
