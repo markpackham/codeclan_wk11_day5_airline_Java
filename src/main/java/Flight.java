@@ -44,4 +44,8 @@ public class Flight {
     public int passengerCount() {
         return this.passengers.size();
     }
+
+    public int availableSeatsCount() {
+        return plane.getPlaneType().capacity - passengerCount();
+    }
 }
