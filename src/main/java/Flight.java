@@ -38,7 +38,9 @@ public class Flight {
     }
 
     public void addPassenger(Passenger passenger) {
-        this.passengers.add(passenger);
+        if(this.plane.getPlaneType().capacity > passengerCount()){
+            this.passengers.add(passenger);
+        }
     }
 
     public int passengerCount() {

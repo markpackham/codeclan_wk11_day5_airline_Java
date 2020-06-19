@@ -65,6 +65,15 @@ public class FlightTest {
     }
 
     @Test
+    public void cannotAddPassanger(){
+        flight1.addPassenger(passenger1);
+        flight1.addPassenger(passenger2);
+        flight1.addPassenger(passenger3);
+        flight1.addPassenger(passenger4);
+        assertEquals(2, flight1.passengerCount());
+    }
+
+    @Test
     public void canShowAvailableSeats(){
         flight4.addPassenger(passenger1);
         assertEquals(99, flight4.availableSeatsCount());
