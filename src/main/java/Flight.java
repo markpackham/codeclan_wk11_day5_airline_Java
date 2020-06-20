@@ -12,6 +12,7 @@ public class Flight {
     private SimpleDateFormat formatter = new SimpleDateFormat("HH:mm");
     private Plane plane;
     private ArrayList<Passenger> passengers;
+    private ArrayList<Integer> seatsTaken;
     private Random rand = new Random();
 
     public Flight(String flightNumber, String destination, String departureAirport, String departureTime, Plane plane) throws ParseException {
@@ -21,6 +22,7 @@ public class Flight {
         this.departureTime = formatter.parse(departureTime);
         this.plane = plane;
         this.passengers = new ArrayList<Passenger>();
+        this.seatsTaken = new ArrayList<Integer>();
     }
 
     public String getFlightNumber() {
@@ -51,10 +53,21 @@ public class Flight {
     public void addPassenger(Passenger passenger) {
         if(this.plane.getPlaneType().capacity > passengerCount()){
             passenger.setFlight(true);
-            int int_random = rand.nextInt(this.plane.getPlaneType().capacity);
-            // Avoid getting seat 0
-            passenger.setSeatNumber(int_random + 1);
+            assignSeat(passenger);
             this.passengers.add(passenger);
+        }
+    }
+
+    public void assignSeat(Passenger passenger){
+        int int_random = rand.nextInt(this.plane.getPlaneType().capacity);
+        // Avoid getting seat 0
+        int_random ++;
+        if(seatsTaken.contains(int_random)){
+            // Use recursion if the seat already exists to avoid getting doubles and get another random number
+            assignSeat(passenger);
+        }else{
+            seatsTaken.add(int_random);
+            passenger.setSeatNumber(int_random);
         }
     }
 
