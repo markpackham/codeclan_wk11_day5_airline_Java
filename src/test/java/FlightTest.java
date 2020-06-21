@@ -109,6 +109,17 @@ public class FlightTest {
         System.out.println(passenger2.getSeatNumber());
     }
 
+    @Test
+    public void canGetSeatsTaken() {
+        flight1.addPassenger(passenger1);
+        assertEquals(1, flight1.getSeatsTaken().size());
+    }
+
+    @Test
+    public void canGetSeatsTaken__no_seats() {
+        assertEquals(0, flight1.getSeatsTaken().size());
+    }
+
     // Bubble Sort and Binary Search never completed, sticking with random seat allocation
     @Test
     public void canBubbleSortSeats() {
@@ -131,4 +142,5 @@ public class FlightTest {
         boolean answer = flight4.binarySeatSearch(flight4.getSeatsTaken(),1000000000);
         assertEquals(false, answer);
     }
+
 }
