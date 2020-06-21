@@ -1,8 +1,6 @@
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Random;
+import java.util.*;
 
 public class Flight {
     private String flightNumber;
@@ -50,6 +48,10 @@ public class Flight {
         return passengers;
     }
 
+    public ArrayList<Integer> getSeatsTaken() {
+        return seatsTaken;
+    }
+
     public void addPassenger(Passenger passenger) {
         if(this.plane.getPlaneType().capacity > passengerCount()){
             passenger.setFlight(true);
@@ -86,4 +88,27 @@ public class Flight {
         }
         return bagWeight;
     }
+
+    // Bubble sort code based on this site, https://www.geeksforgeeks.org/java-program-for-bubble-sort/
+    // Need to resolve this later
+    public void bubbleSortSeats()
+    {
+//        Integer[] seats = new Integer[seatsTaken.size()];
+//        seats = seatsTaken.toArray(seats);
+//        int n = seats.length;
+//        for (int i = 0; i < n-1; i++) {
+//            for (int j = 0; j < n - i - 1; j++) {
+//                if (seats[j] > seats[j++]) {
+//                    // swap temp and our array
+//                    int temp = seats[j];
+//                    seats[j] = seats[j++];
+//                    seats[j++] = temp;
+//                }
+//            }
+//
+//        }
+//        seatsTaken = new ArrayList<Integer>(Arrays.asList(seats));
+        Collections.sort(seatsTaken);
+    }
+
 }

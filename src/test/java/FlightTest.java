@@ -109,4 +109,14 @@ public class FlightTest {
         System.out.println(passenger2.getSeatNumber());
     }
 
+    @Test
+    public void canbubbleSortSeats() {
+        flight4.addPassenger(passenger1);
+        flight4.addPassenger(passenger2);
+        flight4.addPassenger(passenger3);
+        flight4.addPassenger(passenger4);
+        flight4.addPassenger(passenger5);
+        flight4.bubbleSortSeats();
+        System.out.println(flight4.getSeatsTaken());
+    }
 }
