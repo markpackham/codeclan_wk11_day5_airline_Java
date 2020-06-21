@@ -110,7 +110,7 @@ public class FlightTest {
     }
 
     @Test
-    public void canbubbleSortSeats() {
+    public void canBubbleSortSeats() {
         flight4.addPassenger(passenger1);
         flight4.addPassenger(passenger2);
         flight4.addPassenger(passenger3);
@@ -118,5 +118,16 @@ public class FlightTest {
         flight4.addPassenger(passenger5);
         flight4.bubbleSortSeats();
         System.out.println(flight4.getSeatsTaken());
+    }
+
+    @Test
+    public void canBinarySeatSearch__failed_search() {
+        flight4.addPassenger(passenger1);
+        flight4.addPassenger(passenger2);
+        flight4.addPassenger(passenger3);
+        flight4.addPassenger(passenger4);
+        flight4.addPassenger(passenger5);
+        boolean answer = flight4.binarySeatSearch(flight4.getSeatsTaken(),1000000000);
+        assertEquals(false, answer);
     }
 }

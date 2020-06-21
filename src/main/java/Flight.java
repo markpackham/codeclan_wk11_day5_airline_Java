@@ -53,21 +53,21 @@ public class Flight {
     }
 
     public void addPassenger(Passenger passenger) {
-        if(this.plane.getPlaneType().capacity > passengerCount()){
+        if (this.plane.getPlaneType().capacity > passengerCount()) {
             passenger.setFlight(true);
             assignSeat(passenger);
             this.passengers.add(passenger);
         }
     }
 
-    public void assignSeat(Passenger passenger){
+    public void assignSeat(Passenger passenger) {
         int int_random = rand.nextInt(this.plane.getPlaneType().capacity);
         // Avoid getting seat 0
-        int_random ++;
-        if(seatsTaken.contains(int_random)){
+        int_random++;
+        if (seatsTaken.contains(int_random)) {
             // Use recursion if the seat already exists to avoid getting doubles and get another random number
             assignSeat(passenger);
-        }else{
+        } else {
             seatsTaken.add(int_random);
             passenger.setSeatNumber(int_random);
         }
@@ -83,7 +83,7 @@ public class Flight {
 
     public int bagWeightCount() {
         int bagWeight = 0;
-        for (Passenger passanger:passengers) {
+        for (Passenger passanger : passengers) {
             bagWeight += passanger.getBagNumber();
         }
         return bagWeight;
@@ -91,8 +91,7 @@ public class Flight {
 
     // Bubble sort code based on this site, https://www.geeksforgeeks.org/java-program-for-bubble-sort/
     // Need to resolve this later
-    public void bubbleSortSeats()
-    {
+    public void bubbleSortSeats() {
 //        Integer[] seats = new Integer[seatsTaken.size()];
 //        seats = seatsTaken.toArray(seats);
 //        int n = seats.length;
@@ -109,6 +108,36 @@ public class Flight {
 //        }
 //        seatsTaken = new ArrayList<Integer>(Arrays.asList(seats));
         Collections.sort(seatsTaken);
+    }
+
+
+    public boolean binarySeatSearch(ArrayList<Integer> seatsTaken, int seatNumber) {
+        if (seatsTaken.size() == 0) {
+            // break out of loop if person never found
+            return false;
+        }
+
+        int midIndex = 0;
+        if (seatsTaken.size() > 1) {
+            midIndex = (int) Math.ceil((double) seatsTaken.size() / 2);
+        }
+
+        int midPoint = seatsTaken.get(midIndex);
+
+        if (seatNumber == midPoint) {
+            return true;
+        }
+
+        ArrayList<Integer> newSearchArea;
+
+        if (seatNumber < midPoint) {
+            newSearchArea = new ArrayList<Integer>(seatsTaken.subList(0, midIndex));
+        } else {
+            newSearchArea = new ArrayList<Integer>(seatsTaken.subList(midIndex + 1, seatsTaken.size()));
+        }
+
+        // using recursion
+        return binarySeatSearch(newSearchArea, seatNumber);
     }
 
 }
