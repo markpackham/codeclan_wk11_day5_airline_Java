@@ -89,6 +89,8 @@ public class Flight {
         return bagWeight;
     }
 
+    // Bubble Sort and Binary Search never completed, sticking with random seat allocation
+
     // Bubble sort code based on this site, https://www.geeksforgeeks.org/java-program-for-bubble-sort/
     // Need to resolve this later
     public void bubbleSortSeats() {

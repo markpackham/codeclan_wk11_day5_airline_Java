@@ -109,6 +109,7 @@ public class FlightTest {
         System.out.println(passenger2.getSeatNumber());
     }
 
+    // Bubble Sort and Binary Search never completed, sticking with random seat allocation
     @Test
     public void canBubbleSortSeats() {
         flight4.addPassenger(passenger1);
