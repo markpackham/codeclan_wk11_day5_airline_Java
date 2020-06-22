@@ -73,12 +73,6 @@ public class FlightTest {
     }
 
     @Test
-    public void canAddPassanger__flight_true(){
-        flight4.addPassenger(passenger1);
-        assertEquals(true, passenger1.isFlight());
-    }
-
-    @Test
     public void cannotAddPassanger__over_capacity(){
         flight1.addPassenger(passenger1);
         flight1.addPassenger(passenger5);

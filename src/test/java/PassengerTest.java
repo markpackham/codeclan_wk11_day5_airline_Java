@@ -1,6 +1,8 @@
 import org.junit.Before;
 import org.junit.Test;
 
+import java.text.ParseException;
+
 import static org.junit.Assert.assertEquals;
 
 public class PassengerTest {
@@ -8,13 +10,29 @@ public class PassengerTest {
     Passenger passenger2;
     Passenger passenger3;
     Passenger passenger4;
+    Plane plane1;
+    Plane plane2;
+    Plane plane3;
+    Plane plane4;
+    Flight flight1;
+    Flight flight2;
+    Flight flight3;
+    Flight flight4;
 
     @Before
-    public void before(){
+    public void before() throws ParseException {
         passenger1 = new Passenger("Bob", 1);
         passenger2 = new Passenger("Frank", 2);
         passenger3 = new Passenger("Greg", 3);
         passenger4 = new Passenger("Jimmy", 1);
+        plane1 = new Plane(PlaneType.TINYPLANE);
+        plane2 = new Plane(PlaneType.SMALLPLANE);
+        plane3 = new Plane(PlaneType.BIGPLANE);
+        plane4 = new Plane(PlaneType.HUGEPLANE);
+        flight1 = new Flight("1A","Edinburgh", "London", "01:00", plane1);
+        flight2 = new Flight("2A","London", "Edinburgh", "02:00", plane2);
+        flight3 = new Flight("3A","Glasgow", "Paris", "03:00", plane3);
+        flight4 = new Flight("4A","Paris", "Glasgow", "04:00", plane4);
     }
 
     @Test
@@ -40,14 +58,9 @@ public class PassengerTest {
     }
 
     @Test
-    public void canIsFlight() {
-        assertEquals(false,passenger1.isFlight());
-    }
-
-    @Test
     public void canSetFlight() {
-        passenger1.setFlight(true);
-        assertEquals(true,passenger1.isFlight());
+        passenger1.setFlight(flight2);
+        assertEquals(flight2,passenger1.getFlight());
     }
 
     @Test

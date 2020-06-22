@@ -2,13 +2,13 @@ public class Passenger {
     private String name;
     private int bagNumber;
     private int seatNumber;
-    private boolean flight;
+    private Flight flight;
 
     public Passenger(String name, int bagNumber) {
         this.name = name;
         this.bagNumber = bagNumber;
         this.seatNumber = 0;
-        this.flight = false;
+        this.flight = null;
     }
 
     public String getName() {
@@ -35,11 +35,11 @@ public class Passenger {
         this.seatNumber = seatNumber;
     }
 
-    public boolean isFlight() {
+    public Flight getFlight() {
         return flight;
     }
 
-    public void setFlight(boolean flight) {
+    public void setFlight(Flight flight) {
         this.flight = flight;
     }
 
